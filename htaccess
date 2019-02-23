@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteCond %{HTTP:Accept-Language} ^es [NC]
+RewriteCond %{QUERY_STRING} !(^|&)lang=es [NC]
+RewriteRule ^$ http://erikbianco.me/es [L,R=302]
+
+RewriteCond %{HTTP:Accept-Language} ^en [NC]
+RewriteCond %{QUERY_STRING} !(^|&)lang=en [NC]
+RewriteRule ^$ http://erikbianco.me/en [L,R=302]
+
+RewriteCond %{HTTP:Accept-language} !^(es|en).* [NC]
+RewriteRule ^$ http://erikbianco.me/en [L,R=302]
